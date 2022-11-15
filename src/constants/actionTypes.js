@@ -1,0 +1,20 @@
+export const CREATE = 'CREATE';
+export const UPDATE = 'UPDATE';
+export const DELETE = 'DELETE';
+export const FETCH_ALL = 'FETCH_ALL';
+export const FETCH_BY_SEARCH = 'FETCH_BY_SEARCH';
+export const FETCH_POST = 'FETCH_POST';
+export const LIKE = 'LIKE';
+export const COMMENT = 'COMMENT';
+export const END_LOADING = 'END_LOADING';
+export const START_LOADING = 'START_LOADING';
+export const FETCH_BY_CREATOR = 'FETCH_BY_CREATOR';
+export const ISLOG = 'ISLOG';
+export const AUTH = 'AUTH';
+export const ADMIN_AUTH = 'ADMIN_AUTH';
+export const ADMIN_LOGOUT = 'ADMIN_LOGOUT';
+export const LOGOUT = 'LOGOUT'
+export const FETCH_ITEMS = 'FETCH_ITEMS'
+export const SET_ORDER = 'SET_ORDER';
+export const GET_ORDER = 'GET_ORDER';
+
