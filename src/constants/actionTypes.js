@@ -19,5 +19,7 @@ export const SET_ORDER = 'SET_ORDER';
 export const GET_ORDER = 'GET_ORDER';
 export const SET_LOADING = 'SET_LOADING';
 export const UNSET_LOADING = 'UNSET_LOADING';
+export const SET_PAYMENT = "SET_PAYMENT";
+export const GET_PAYMENT= "GET_PAYMENT";
 
 

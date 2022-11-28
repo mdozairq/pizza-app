@@ -36,7 +36,7 @@ margin: 20px 10px 0px 10px;
 
 /* background-color:blue; */
 }
-.studentDetails h5{
+.studentDetails h4{
     margin: 0px;
     padding: 0px;
     font-size: 24px;
@@ -45,6 +45,12 @@ margin: 20px 10px 0px 10px;
 .studentDetails p{
     margin: 0px;
     font-weight: bold;
+}
+
+.studentDetails div{
+    display: inline-flex;
+    margin: 5px;
+    flex-direction: row;
 }
 .message{
 display: flex;

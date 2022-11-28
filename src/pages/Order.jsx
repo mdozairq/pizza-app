@@ -14,9 +14,12 @@ const Order = () => {
     const orders = useSelector((state) => state.order.orderData);
     const dispatch = useDispatch();
 
+    
+
     useEffect(() => {
         if (!orders)
             dispatch(getOrder());
+
     }, [dispatch, orders])
 
     return (
@@ -27,11 +30,11 @@ const Order = () => {
                         <Grid item xs={12} lg={9} md={9}>
                             <>
                                 <div style={{ width: "400px" }}>
-                                    <h3>All Your Orders:</h3>
+                                    <h3>Orders History:</h3>
                                 </div>
                                 {orders && orders.data.map((allItems, index) =>
                                     <>
-                                        <p></p>
+                                        <h4 style={{ textDecoration: "underline", color:"gray"}}>{new Date(allItems.createdAt).toLocaleString()}</h4>
                                         <NewOrderCard allItems={allItems} key={index} />
                                     </>
                                 )

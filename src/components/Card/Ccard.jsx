@@ -9,31 +9,29 @@ import Tooltip from '@mui/material/Tooltip';
 import Button from "@mui/material/Button";
 
 
-function Ccard({ data, handleClickOpen }) {  
+function Ccard({ data, handleClickOpen }) {
+  const myDate = new Date(data.result.dob)
+  const dob = myDate.toDateString();
   console.log(data.result)
   return (
     <div className="cardDiv" >
       <div>
-          <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-            UPDATE
-          </Button>
-        </div>
+        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+          UPDATE
+        </Button>
+      </div>
       <div className="upperHalf">
         <div className='imageDiv'>
           <Avatar alt={data.result.name} src={data.result.img ? data.result.img : "static/images/avatar/1.jpg"} sx={{ width: 150, height: 150 }} />
         </div>
         <div className='studentDetails'>
-          <h4>Name : &ensp;{data.result.name}</h4>
-          <p>Username :&ensp;{data.result.username}</p>
-          <p>Date of Birth :&ensp;{data.result.dob}</p>
-          <p>Email: &ensp; {data.result.email}</p>
+          <div><p>Name : </p>&ensp;<p style={{color:"gray"}}>{data.result.name}</p></div>
+          <div><p>Username :</p>&ensp;<p style={{color:"gray"}}>{data.result.username}</p></div>
+          <div><p>Date of Birth :</p> &ensp;<p style={{color:"gray"}}>{dob}</p></div>
+          <div><p>Email:</p> &ensp; <p style={{color:"gray"}}>{data.result.email}</p></div>
         </div>
       </div>
       <div className='lowerDiv'>
-        <div className='linkSection'>
-          <div><Tooltip title={data.result.email ? data.result.email : "Gmail"} placement="top" arrow><a href={`mailto:abc@gmail.com`} target='_blank' rel="noreferrer"><MailOutlineIcon /></a></Tooltip></div>
-          <div><Tooltip title={data.result.phone ? data.result.phone : "Phone number"} placement="top" arrow><a href={`tel:+91${data.result.phone}`} target='_blank' rel="noreferrer"><PhoneIcon /></a></Tooltip></div>
-        </div>
         {/* <div className='buttonSection'>
                   <Button color="primary" variant="contained" onClick={()=>setCurrentId(data.result._id)}>Edit</Button>
                   <Button color="error" variant="contained" style={{marginLeft:"10px"}} onClick={() => dispatch(deleteManagement(data.result._id))}>Delete</Button>

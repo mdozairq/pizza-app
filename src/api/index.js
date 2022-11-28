@@ -39,3 +39,5 @@ export const signIn = (formData) => API.post('/api/auth/signin', formData);
 export const signUp = (formData) => API.post('/api/auth/signup', formData);
 export const getOrder = () => API.get('/api/order');
 export const setOrder = (cartItem) => API.post('/api/order', cartItem);
+export const setPayment = (formData) => API.post('api/payment', formData)
+export const getPayment = ()=> API.get('api/payment');
