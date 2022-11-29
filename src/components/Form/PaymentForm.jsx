@@ -29,10 +29,10 @@ const PaymentForm = () => {
     const dispatch = useDispatch();
     const isUser = useSelector((state) => state.auth.authData);
     const isError = useSelector((state) => state.auth.errors);
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addPayment({paymentType, ...formData}))
+        dispatch(addPayment({ paymentType, ...formData }))
     };
     useEffect(() => {
         if (isError)
@@ -46,6 +46,7 @@ const PaymentForm = () => {
             <Container component="main" maxWidth="xs">
                 <ThemeProvider theme={theme}>
                     <Container component="main" maxWidth="xs">
+                        <h3>All Payments Options:</h3>
                         <CssBaseline />
                         <Box
                             sx={{
@@ -55,6 +56,7 @@ const PaymentForm = () => {
                                 alignItems: 'center',
                             }}
                         >
+
                             <Box component="form"
                                 // onSubmit={handleSubmit} 
                                 noValidate sx={{ mt: 1 }}>
@@ -80,7 +82,7 @@ const PaymentForm = () => {
                                             name="upi"
                                             autoComplete=""
                                             type="text"
-                                            onChange={(e)=>{setFormData({...formData, upi: e.target.value })}}
+                                            onChange={(e) => { setFormData({ ...formData, upi: e.target.value }) }}
                                             autoFocus
                                         />
                                         : paymentType === "card" ?
@@ -94,7 +96,7 @@ const PaymentForm = () => {
                                                     name="cardNumber"
                                                     autoComplete=""
                                                     type="number"
-                                                    onChange={(e)=>{setFormData({...formData, cardNumber: e.target.value })}}
+                                                    onChange={(e) => { setFormData({ ...formData, cardNumber: e.target.value }) }}
                                                     // value={profile.result.name}
                                                     // onChange={handleChange}
                                                     autoFocus
@@ -109,38 +111,38 @@ const PaymentForm = () => {
                                                 /> */}
                                             </> :
                                             <>
-                                            <TextField
-                                            margin="normal"
-                                            required
-                                            fullWidth
-                                            id="bankName"
-                                            label="Enter Bank Name"
-                                            name="bankName"
-                                            autoComplete=""
-                                            type="text"
-                                            onChange={(e)=>{setFormData({...formData, bankName: e.target.value })}}
-                                            autoFocus
-                                        />
-                                        <TextField
-                                            margin="normal"
-                                            required
-                                            fullWidth
-                                            id="ifscCode"
-                                            label="Enter IFSC "
-                                            name="ifscCode"
-                                            onChange={(e)=>{setFormData({...formData, ifscCode: e.target.value })}}
-                                            autoComplete=""
-                                            type="text"/>
-                                        <TextField
-                                            margin="normal"
-                                            required
-                                            fullWidth
-                                            id="accountNumber"
-                                            label="Enter Account Number"
-                                            name="accountNumber"
-                                            onChange={(e)=>{setFormData({...formData, accountNumber: e.target.value })}}
-                                            autoComplete=""
-                                            type="number"/>
+                                                <TextField
+                                                    margin="normal"
+                                                    required
+                                                    fullWidth
+                                                    id="bankName"
+                                                    label="Enter Bank Name"
+                                                    name="bankName"
+                                                    autoComplete=""
+                                                    type="text"
+                                                    onChange={(e) => { setFormData({ ...formData, bankName: e.target.value }) }}
+                                                    autoFocus
+                                                />
+                                                <TextField
+                                                    margin="normal"
+                                                    required
+                                                    fullWidth
+                                                    id="ifscCode"
+                                                    label="Enter IFSC "
+                                                    name="ifscCode"
+                                                    onChange={(e) => { setFormData({ ...formData, ifscCode: e.target.value }) }}
+                                                    autoComplete=""
+                                                    type="text" />
+                                                <TextField
+                                                    margin="normal"
+                                                    required
+                                                    fullWidth
+                                                    id="accountNumber"
+                                                    label="Enter Account Number"
+                                                    name="accountNumber"
+                                                    onChange={(e) => { setFormData({ ...formData, accountNumber: e.target.value }) }}
+                                                    autoComplete=""
+                                                    type="number" />
                                             </>
                                 }
 
@@ -149,7 +151,7 @@ const PaymentForm = () => {
                                     fullWidth
                                     variant="contained"
                                     sx={{ mt: 3, mb: 2 }}
-                                    onClick = {handleSubmit}
+                                    onClick={handleSubmit}
                                 >
                                     ADD A METHOD
                                 </Button>

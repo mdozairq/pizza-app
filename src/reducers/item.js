@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { FETCH_ITEMS } from '../constants/actionTypes';
+import { DELETE_ITEM, FETCH_ITEMS } from '../constants/actionTypes';
 
 
 const INITIAL_STATE = {
@@ -7,7 +7,10 @@ const INITIAL_STATE = {
     items: []
 }
 
-export default (state = INITIAL_STATE, action) => {
+export default (state = {
+    isLoading: true,
+    items: []
+}, action) => {
     switch (action.type) {
         case 'START_LOADING':
             return { ...state, isLoading: true };
@@ -18,6 +21,8 @@ export default (state = INITIAL_STATE, action) => {
                 ...state,
                 items: action.payload,
             };
+        // case DELETE_ITEM:
+        //     state.items = state.items.filter((each) => each.id !== action.payload.id)
 
         default:
             return state;

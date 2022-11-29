@@ -3,12 +3,21 @@ import "./pizzaStyles.scss";
 import veg from "../../assets/veg.png"
 import nonVeg from "../../assets/non-veg.png"
 import GroupButton from '../GroupButton/GroupButton'
-import { Rating } from "@mui/material";
+import { Button, Rating } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { DELETE_ITEM } from "../../constants/actionTypes";
+
 
 const PizzaSection = ({ pizza, onAddToCart }) => {
 	// styles hooks of material UI
+	const isAdmin = useSelector((state) => state.admin.adminData);
+	console.log("admin", isAdmin);
+	const dispatch = useDispatch();
+	const onDelete = (data) => {
+		dispatch({ type: DELETE_ITEM, payload: { items: data } });
+	}
 
-	// console.log(pizza);
+
 
 	return (
 		<div className="card">
@@ -40,11 +49,18 @@ const PizzaSection = ({ pizza, onAddToCart }) => {
 						</div>
 
 					</div>
-					<div className="buttonSec">
-						<div>
-							<GroupButton pizza={pizza} />
+					{isAdmin && isAdmin ?
+						<div className="buttonSec">
+							<div style={{ background: "red", color: "#fff" }}>
+								<Button variant="primary" style={{ background: "red" }} onClick={onDelete(pizza)}>Delete</Button>
+							</div>
 						</div>
-					</div>
+						: <div className="buttonSec">
+							<div>
+								<GroupButton pizza={pizza} />
+							</div>
+						</div>
+					}
 
 				</div>
 

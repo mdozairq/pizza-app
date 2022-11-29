@@ -30,13 +30,17 @@ const useStyles = makeStyles({
 
 const theme = createTheme();
 
+
+
 function Card({ profile }) {
-  const [open, setOpen] = useState(false);
   const initialState = {
     name: profile.result.name,
     username: profile.result.username,
     password: profile.result.password
   };
+  const [open, setOpen] = useState(false);
+  const [data, setData] = useState(initialState);
+  
   const classes = useStyles();
 
 
@@ -48,6 +52,10 @@ function Card({ profile }) {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleSubmit = () =>{
+    handleClose();
+  }
 
   return (
 
@@ -70,7 +78,7 @@ function Card({ profile }) {
                 }}
               >
                 <Box component="form"
-                  // onSubmit={handleSubmit} 
+                  onSubmit={handleSubmit} 
                   noValidate sx={{ mt: 1 }}>
                   <TextField
                     margin="normal"
@@ -81,8 +89,8 @@ function Card({ profile }) {
                     name="name"
                     autoComplete=""
                     type="text"
-                    value={profile.result.name}
-                    // onChange={handleChange}
+                    value={data.name}
+                    onChange={(e)=>{setData({...data, name: e.target.value})}}
                     autoFocus
                   />
                   <TextField
@@ -92,10 +100,9 @@ function Card({ profile }) {
                     name="username"
                     label="Username"
                     type="text"
-                    id="password"
-                    value={profile.result.username}
-                    // onChange={handleChange}
-                    autoComplete="current-password"
+                    id="username"
+                    value={data.username}
+                    onChange={(e)=>{setData({...data, username: e.target.value})}}
                   />
                   <Button
                     type="submit"
